@@ -12,7 +12,7 @@ module.exports = merge(common, {
   output: {
     path: path.resolve(__dirname, "../dist"),
     filename: "index.js",
-    publicPath: "/",
+    publicPath: "./",
     library: packageJson.name, // 使用 package.json 中的 name 字段
     libraryTarget: "umd",
     globalObject: "typeof self !== 'undefined' ? self : this", // 兼容浏览器和 Node.js
