@@ -1,19 +1,22 @@
-// react 组件编译使用 webpack
-
 const path = require("path");
+const { merge } = require("webpack-merge");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const common = require("./webpack.common.js");
 
-module.exports = {
+// 读取 package.json
+const packageJson = require("../package.json");
+
+module.exports = merge(common, {
+  mode: "production",
   entry: path.resolve(__dirname, "../src/index.ts"),
   output: {
     path: path.resolve(__dirname, "../dist"),
     filename: "index.js",
     publicPath: "/",
-    library: "TntReactComponent",
+    library: packageJson.name, // 使用 package.json 中的 name 字段
     libraryTarget: "umd",
-  },
-  resolve: {
-    extensions: [".ts", ".tsx", ".js", ".jsx"],
+    globalObject: "typeof self !== 'undefined' ? self : this", // 兼容浏览器和 Node.js
+    libraryExport: "default", // 导出默认内容
   },
   externals: {
     react: {
@@ -29,42 +32,5 @@ module.exports = {
       root: "ReactDOM",
     },
   },
-  module: {
-    rules: [
-      {
-        test: /\.(ts|tsx)$/,
-        use: "ts-loader",
-        exclude: /node_modules/,
-      },
-      {
-        test: /\.less$/,
-        use: ["style-loader", "css-loader", "less-loader"],
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: "url-loader",
-        options: {
-          limit: 10000,
-          name: "img/[name].[hash:7].[ext]",
-        },
-      },
-      {
-        test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
-        loader: "url-loader",
-        options: {
-          limit: 10000,
-          name: "media/[name].[hash:7].[ext]",
-        },
-      },
-      {
-        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: "url-loader",
-        options: {
-          limit: 10000,
-          name: "fonts/[name].[hash:7].[ext]",
-        },
-      },
-    ],
-  },
   plugins: [new CleanWebpackPlugin()],
-};
+});

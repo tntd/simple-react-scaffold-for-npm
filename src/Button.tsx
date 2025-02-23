@@ -1,4 +1,5 @@
 import React from "react";
+import svgDemo from "./2.svg";
 import "./Button.less";
 
 interface ButtonProps {
@@ -8,9 +9,12 @@ interface ButtonProps {
 
 const Button: React.FC<ButtonProps> = ({ label, onClick }) => {
   return (
-    <button className="my-button" onClick={onClick}>
-      {label}
-    </button>
+    <>
+      <button className="my-button" onClick={onClick}>
+        {label}
+      </button>
+      <img src={svgDemo} />
+    </>
   );
 };
 

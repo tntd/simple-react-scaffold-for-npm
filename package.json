@@ -1,6 +1,7 @@
 {
-    "name": "my-react-component",
-    "version": "1.0.0",
+    "name": "@tnt-temp/test-react-component",
+    "library": "myReactComponent",
+    "version": "1.0.1",
     "description": "A sample React component library with preview",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -40,7 +41,8 @@
         "url-loader": "^4.1.1",
         "webpack": "^5.70.0",
         "webpack-cli": "^4.9.0",
-        "webpack-dev-server": "^4.9.0"
+        "webpack-dev-server": "^4.9.0",
+        "webpack-merge": "^6.0.1"
     },
     "peerDependencies": {
         "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
