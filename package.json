@@ -7,7 +7,8 @@
     "types": "dist/index.d.ts",
     "scripts": {
         "start": "webpack serve --config ./scripts/webpack.dev.js --mode development",
-        "build": "webpack --config ./scripts/webpack.prod.js --mode production"
+        "build": "webpack --config ./scripts/webpack.prod.js --mode production",
+        "publish": "npm publish --access=public"
     },
     "keywords": [
         "tnt",
@@ -16,7 +17,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/rookie1989"
+        "url": "https://github.com/tntd/simple-react-scaffold-for-npm"
     },
     "license": "MIT",
     "files": [

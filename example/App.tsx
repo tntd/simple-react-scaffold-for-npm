@@ -1,11 +1,11 @@
 import React from "react";
-import Button from "../src";
+import { TntButton } from "../src";
 
 export default () => {
   return (
     <div>
       <h1>React Component Library Preview</h1>
-      <Button label="Click Me!" onClick={() => alert("Button clicked!")} />
+      <TntButton label="Click Me!" onClick={() => alert("Button clicked!")} />
     </div>
   );
 };
