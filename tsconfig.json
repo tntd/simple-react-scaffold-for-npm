@@ -12,5 +12,5 @@
     "skipLibCheck": true,
     "typeRoots": ["node_modules/@types"]
   },
-  "include": ["src/**/*", "example/**/*"]
+  "include": ["src/**/*", "example/**/*", "declarations.d.ts"]
 }
