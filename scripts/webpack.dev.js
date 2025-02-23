@@ -1,3 +1,5 @@
+// 开发组件开发使用，入口是预览示例
+
 const path = require("path");
 
 module.exports = {
@@ -6,7 +8,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "index.js",
     publicPath: "/",
-    library: "MyReactComponent",
+    library: "TntReactComponent",
     libraryTarget: "umd",
   },
   resolve: {
